@@ -1,6 +1,11 @@
 --The name of the mod displayed in the 'mods' screen.
 name = "不要撑死"
 
+if release then
+else
+    name = name .. "(dev)"
+end
+
 --A description of the mod.
 description = [[
 吃过多的食物会带来负面效果，还有可能会被撑死。
@@ -27,8 +32,8 @@ hamlet_compatible = true
 -- DST
 api_version_dst = 10
 dst_compatible = true
-server_only_mod = false         -- true also ok
+server_only_mod = false        -- true also ok
 client_only_mod = false
-all_clients_require_mod = true  -- false also ok
+all_clients_require_mod = true -- false also ok
 
 forumthread = ""
