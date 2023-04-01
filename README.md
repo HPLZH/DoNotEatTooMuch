@@ -9,4 +9,6 @@
 
 Steam创意工坊页面: <https://steamcommunity.com/sharedfiles/filedetails/?id=2955691787>
 
-[源代码](https://github.com/HPLZH/DoNotEatTooMuch/) [安装方法](https://github.com/HPLZH/DoNotEatTooMuch/blob/main/install.md)
+[源代码](https://github.com/HPLZH/DoNotEatTooMuch/)  
+[安装方法](https://github.com/HPLZH/DoNotEatTooMuch/blob/main/install.md)  
+[贡献者](https://github.com/HPLZH/DoNotEatTooMuch/blob/main/contributors.md)
