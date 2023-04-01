@@ -1,0 +1,8 @@
+return {
+    SANITY_RATE = 1,
+    HEALTH_RATE = 0.1,
+    HEALTH_DROP_POINT = 1.5,
+    HEALTH_DROP_STOP_POINT = 0.9,
+    HEALTH_CURE_POINT = 0.8,
+    BASIC_MASS = 1,
+}
