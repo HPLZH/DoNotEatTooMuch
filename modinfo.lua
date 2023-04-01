@@ -6,6 +6,9 @@ description = [[
     吃过多的食物会带来负面效果，还有可能会被撑死。
 
     源代码: https://github.com/HPLZH/DoNotEatTooMuch/
+
+    若要提出建议或报告问题，请使用此页面:
+    https://github.com/HPLZH/DoNotEatTooMuch/issues
 ]]
 
 --Who wrote this awesome mod?
