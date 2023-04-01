@@ -20,7 +20,7 @@ https://github.com/HPLZH/DoNotEatTooMuch/issues
 author = "Li Zihan"
 
 --A version number so you can ask people if they are running an old version of your mod.
-version = "v1.1"
+version = "v1.2"
 
 -- DS
 api_version = 6

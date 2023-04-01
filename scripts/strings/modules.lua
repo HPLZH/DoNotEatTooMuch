@@ -35,7 +35,7 @@ return {
         WORTOX = "speech_generic",
         WURT = "speech_generic",
         WALTER = "speech_generic",
-        WANDA = "speech_generic",
+        WANDA = "speech_wanda",
 
     }
 }
