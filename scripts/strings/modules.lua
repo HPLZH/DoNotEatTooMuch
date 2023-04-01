@@ -33,7 +33,7 @@ return {
         -- DST
         WINONA = "speech_generic",
         WORTOX = "speech_generic",
-        WURT = "speech_generic",
+        WURT = "speech_wurt",
         WALTER = "speech_generic",
         WANDA = "speech_wanda",
 
