@@ -9,9 +9,8 @@ return {
         WENDY = "speech_wendy",
         WOLFGANG = "speech_wolfgang",
         WOODIE = "speech_generic",
-        WICKERBOTTOM = "speech_generic",
+        WICKERBOTTOM = "speech_wickerbottom",
         WX78 = "speech_generic",
-        WES = "speech_generic",
         WAXWELL = "speech_generic",
         WAGSTAFF = "speech_generic",
 
