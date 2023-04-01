@@ -1,4 +1,4 @@
-copy /Y release.lua+modinfo.lua publish\modinfo.lua
+python linkcopy.py release.lua modinfo.lua publish/modinfo.lua
 copy /Y modmain.lua publish\
 copy /Y LICENSE publish\
 copy /Y README.md publish\
