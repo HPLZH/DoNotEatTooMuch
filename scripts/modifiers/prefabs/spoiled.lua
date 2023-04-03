@@ -1,6 +1,5 @@
 return function(self)
-    if (TheSim.GetGameID ~= nil and TheSim:GetGameID() == "DST" and TheNet:GetIsClient()) then
-    else
+    if self.components.edible ~= nil then
         self.components.edible.sanityvalue = TUNING.SPOILED_SANITY
     end
 end
