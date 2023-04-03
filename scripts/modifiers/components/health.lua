@@ -47,9 +47,7 @@ local function onHungerChanged(inst, data)
             end
         end
     end
-
-
-
+    
     if inst:HasTag("player") then
         if data.newpercent > data.oldpercent then
             if inst.components.health:overflow_IsDropping() then
@@ -69,6 +67,8 @@ local function add_overflow_damage(self)
     self.overflow = {}
     self.overflow.damage = 0
     self.overflow.period = 0.1
+    self.overflow.sum = 0
+    self.overflow.hurt_count = 0
     self.overflow.task = nil
     self.overflow_IsDropping = function(self)
         return self.overflow.task ~= nil

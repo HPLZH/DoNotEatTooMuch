@@ -1,3 +1,5 @@
+local CONFIG = TUNING.DO_NOT_EAT_TOO_MUCH
+
 local function override_DoDelta(self, delta, overtime, ignore_invincible)
     --[[
     原方法: components.hunger:DoDelta
@@ -69,8 +71,33 @@ local function override_DoDelta(self, delta, overtime, ignore_invincible)
     end
 end
 
+local function override_DoDec(self, dt, ignore_damage)
+    if (self.inst.sg ~= nil and self.inst.sg:HasStateTag("moving")) then
+        if (self.inst.components.health ~= nil and self.inst.components.health.overflow ~= nil) then
+            if not self.inst:HasTag("MOD_DO_NOT_EAT_TOO_MUCH_DANGER") then
+                self.inst.components.health.overflow.sum = self.inst.components.health.overflow.sum +
+                    (self:GetPercent() - CONFIG.HEALTH_RANDOM_DROP_POINT) * dt * math.random()
+                if self.inst.components.health.overflow.sum * math.random() > CONFIG.HEALTH_DROP_POINT - CONFIG.HEALTH_RANDOM_DROP_POINT then
+                    self.inst.components.health.overflow.sum = 0
+                    self.inst.components.health:DoDelta(-self.inst.components.health.overflow.damage, false, "food")
+                    self.inst.components.health.overflow.hurt_count = self.inst.components.health.overflow.hurt_count + 1
+                    if self.inst.components.health.overflow.hurt_count > CONFIG.HEALTH_HURT_COUNT then
+                        self.inst:AddTag("MOD_DO_NOT_EAT_TOO_MUCH_DANGER")
+                        self.inst.components.health.overflow.hurt_count = 0
+                    end
+                end
+            end
+        end
+        self:overflow_old_DoDec(dt * CONFIG.HUNGER_MOVING_MULTIPLIER, ignore_damage)
+    else
+        self:overflow_old_DoDec(dt, ignore_damage)
+    end
+end
+
 local function override_hunger(self)
     self.DoDelta = override_DoDelta
+    self.overflow_old_DoDec = self.DoDec
+    self.DoDec = override_DoDec
 end
 
 return override_hunger
