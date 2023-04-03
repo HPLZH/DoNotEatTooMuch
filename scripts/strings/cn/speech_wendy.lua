@@ -1,7 +1,8 @@
 return {
     ANNOUNCE_EAT = {
-        MOD_DO_NOT_EAT_TOO_MUCH_FULL = "刚才的食物...有点多。",
-        MOD_DO_NOT_EAT_TOO_MUCH_OVERFLOW = "我现在...肚子疼。",
-        MOD_DO_NOT_EAT_TOO_MUCH_DANGER = "我的胃已经被撑爆了！"
+        -- Author : fu_君文_
+        MOD_DO_NOT_EAT_TOO_MUCH_FULL = "我吃太多了...",
+        MOD_DO_NOT_EAT_TOO_MUCH_OVERFLOW = "不...我不想再吃了...",
+        MOD_DO_NOT_EAT_TOO_MUCH_DANGER = "吃得再多也填补不了我心灵的空虚..."
     }
 }

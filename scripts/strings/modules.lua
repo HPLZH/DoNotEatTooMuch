@@ -8,7 +8,7 @@ return {
         WILLOW = "speech_willow",
         WENDY = "speech_wendy",
         WOLFGANG = "speech_wolfgang",
-        WOODIE = "speech_generic",
+        WOODIE = "speech_woodie",
         WICKERBOTTOM = "speech_wickerbottom",
         WX78 = "speech_wx78",
         WAXWELL = "speech_generic",
@@ -32,7 +32,7 @@ return {
 
         -- DST
         WINONA = "speech_generic",
-        WORTOX = "speech_generic",
+        WORTOX = "speech_wortox",
         WURT = "speech_wurt",
         WALTER = "speech_generic",
         WANDA = "speech_wanda",
