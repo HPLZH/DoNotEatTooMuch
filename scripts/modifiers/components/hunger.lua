@@ -1,5 +1,15 @@
 local function override_DoDelta(self, delta, overtime, ignore_invincible)
-    if TheSim:GetGameID() == "DST" then
+    --[[
+    原方法: components.hunger:DoDelta
+    此方法是对游戏原有方法的改写，并且不会调用原方法
+    此mod与改写此方法且不调用原方法的mod不兼容
+    此mod需要在改写此方法的其他mod被加载前被加载
+
+    此方法是对游戏源代码进行整合与修改而成(DS,DST)
+    游戏源代码的版权归 Klei Entertainment 所有
+
+    --]]
+    if (TheSim.GetGameID ~= nil and TheSim:GetGameID() == "DST") then
         if self.redirect ~= nil then
             self.redirect(self.inst, delta, overtime)
             return
@@ -29,7 +39,7 @@ local function override_DoDelta(self, delta, overtime, ignore_invincible)
         end
     end
 
-    if TheSim:GetGameID() == "DST" then
+    if (TheSim.GetGameID ~= nil and TheSim:GetGameID() == "DST") then
         self.inst:PushEvent("hungerdelta",
             {
                 oldpercent = old / self.max,

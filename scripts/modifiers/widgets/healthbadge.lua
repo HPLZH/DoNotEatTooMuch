@@ -1,6 +1,16 @@
 local CONFIG = TUNING.DO_NOT_EAT_TOO_MUCH
 
 local function override_OnUpdate_DST(self, dt)
+    --[[
+    原方法: widgets.healthbadge:OnUpdate
+    此方法是对游戏原有方法的改写，并且不会调用原方法
+    此mod与改写此方法且不调用原方法的mod不兼容
+    此mod需要在改写此方法的其他mod被加载前被加载
+    
+    此方法是对游戏源代码进行修改而成(DST)
+    游戏源代码的版权归 Klei Entertainment 所有
+    
+    --]]
     if TheNet:IsServerPaused() then return end
 
     local down
@@ -38,6 +48,16 @@ local function override_OnUpdate_DST(self, dt)
 end
 
 local function override_OnUpdate_DS(self, dt)
+    --[[
+    原方法: widgets.healthbadge:OnUpdate
+    此方法是对游戏原有方法的改写，并且不会调用原方法
+    此mod与改写此方法且不调用原方法的mod不兼容
+    此mod需要在改写此方法的其他mod被加载前被加载
+    
+    此方法是对游戏源代码进行修改而成(DS,RoG,SW,HAM)
+    游戏源代码的版权归 Klei Entertainment 所有
+    
+    --]]
     local down = (self.owner.components.temperature.IsOverheating ~= nil and self.owner.components.temperature:IsOverheating()) or
         self.owner.components.temperature:IsFreezing() or
         self.owner.components.hunger:IsStarving() or
@@ -80,7 +100,7 @@ local function override_OnUpdate_DS(self, dt)
 end
 
 local function override(self)
-    if TheSim:GetGameID() == "DST" then
+    if (TheSim.GetGameID ~= nil and TheSim:GetGameID() == "DST") then
         self.OnUpdate = override_OnUpdate_DST
     else
         self.OnUpdate = override_OnUpdate_DS
