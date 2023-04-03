@@ -1,7 +1,8 @@
 return {
     ANNOUNCE_EAT = {
-        MOD_DO_NOT_EAT_TOO_MUCH_FULL = "我已经吃饱了。",
-        MOD_DO_NOT_EAT_TOO_MUCH_OVERFLOW = "我吃不了那么多东西。",
-        MOD_DO_NOT_EAT_TOO_MUCH_DANGER = "我不能继续吃了。"
+        -- Author : fu_君文_
+        MOD_DO_NOT_EAT_TOO_MUCH_FULL = "呃，我吃多了。",
+        MOD_DO_NOT_EAT_TOO_MUCH_OVERFLOW = "我是不是吃得太饱了？",
+        MOD_DO_NOT_EAT_TOO_MUCH_DANGER = "像有一团火在肚子里燃烧。"
     }
 }

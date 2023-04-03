@@ -10,7 +10,7 @@ return {
         WOLFGANG = "speech_wolfgang",
         WOODIE = "speech_generic",
         WICKERBOTTOM = "speech_wickerbottom",
-        WX78 = "speech_generic",
+        WX78 = "speech_wx78",
         WAXWELL = "speech_generic",
         WAGSTAFF = "speech_generic",
 
