@@ -72,11 +72,18 @@ local function override_DoDelta(self, delta, overtime, ignore_invincible)
 end
 
 local function override_DoDec(self, dt, ignore_damage)
-    if (self.inst.sg ~= nil and self.inst.sg:HasStateTag("moving")) then
-        if (self.inst.components.health ~= nil and self.inst.components.health.overflow ~= nil) then
-            if not self.inst:HasTag("MOD_DO_NOT_EAT_TOO_MUCH_DANGER") then
-                self.inst.components.health.overflow.sum = self.inst.components.health.overflow.sum +
-                    (self:GetPercent() - CONFIG.HEALTH_RANDOM_DROP_POINT) * dt * math.random()
+    local multiplier = 1
+    if (self.inst.components.health ~= nil and self.inst.components.health.overflow ~= nil) then
+        if not self.inst:HasTag("MOD_DO_NOT_EAT_TOO_MUCH_DANGER") then
+            if (self.inst.sg ~= nil and self.inst.sg:HasStateTag("moving")) then
+                multiplier = CONFIG.HUNGER_MOVING_MULTIPLIER
+                if self:GetPercent() > CONFIG.HEALTH_RANDOM_DROP_POINT then
+                    self.inst.components.health.overflow.sum = self.inst.components.health.overflow.sum +
+                        (self:GetPercent() - 1) * dt * math.random()
+                end
+                if self.inst.components.health.overflow.sum < 0 then
+                    self.inst.components.health.overflow.sum = 0
+                end
                 if self.inst.components.health.overflow.sum * math.random() > CONFIG.HEALTH_DROP_POINT - CONFIG.HEALTH_RANDOM_DROP_POINT then
                     self.inst.components.health.overflow.sum = 0
                     self.inst.components.health:DoDelta(-self.inst.components.health.overflow.damage * 10, false, "food")
@@ -86,12 +93,27 @@ local function override_DoDec(self, dt, ignore_damage)
                         self.inst.components.health.overflow.hurt_count = 0
                     end
                 end
+            else
+                self.inst.components.health.overflow.sum = self.inst.components.health.overflow.sum +
+                    (self:GetPercent() - CONFIG.HEALTH_DROP_POINT) *
+                    (CONFIG.HEALTH_DROP_POINT - CONFIG.HEALTH_RANDOM_DROP_POINT) * dt * math.random()
+                if self.inst.components.health.overflow.sum < 0 then
+                    self.inst.components.health.overflow.sum = 0
+                    if self.inst.components.health.overflow.hurt_count > CONFIG.HEALTH_HURT_COUNT * (self:GetPercent() - 1) / (CONFIG.HEALTH_DROP_POINT - 1) then
+                        self.inst.components.health.overflow.hurt_count =
+                            self.inst.components.health.overflow.hurt_count - 1
+                        self.inst.components.health.overflow.sum =
+                            CONFIG.HEALTH_DROP_POINT - CONFIG.HEALTH_RANDOM_DROP_POINT
+                    end
+                end
             end
+        else
+            self.inst.components.health.overflow.sum = 0
+            self.inst.components.health.overflow.hurt_count = 0
         end
-        self:overflow_old_DoDec(dt * CONFIG.HUNGER_MOVING_MULTIPLIER, ignore_damage)
-    else
-        self:overflow_old_DoDec(dt, ignore_damage)
     end
+
+    self:overflow_old_DoDec(dt * multiplier, ignore_damage)
 end
 
 local function override_hunger(self)
