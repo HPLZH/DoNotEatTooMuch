@@ -54,7 +54,7 @@ end
 
 local difficulties = {
     OptionInfo("简单", "easy", "Easy"),
-    OptionInfo("普通", "normal", "默认难度\nNormal (Default)"),
+    OptionInfo("普通 (默认)", "normal", "Normal (Default)"),
     OptionInfo("困难", "hard", "Hard"),
     OptionInfo("困难+", "hard1", "Hard+"),
     OptionInfo("困难++", "hard2", "Hard++"),
