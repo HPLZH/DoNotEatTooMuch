@@ -14,6 +14,9 @@ description = [[
 
 若要提出建议或报告问题，请使用此页面:
 https://github.com/HPLZH/DoNotEatTooMuch/issues
+
+除普通难度以外的所有难度的参数都未经充分测试
+通过修改 (此mod)/scripts/difficulties/user.lua 修改自定义难度的参数
 ]]
 
 --Who wrote this awesome mod?
@@ -53,6 +56,7 @@ local function Option(name, label, hover, options, default)
 end
 
 local difficulties = {
+    OptionInfo("自定义", "user"),
     OptionInfo("简单", "easy", "Easy"),
     OptionInfo("普通 (默认)", "normal", "Normal (Default)"),
     OptionInfo("困难", "hard", "Hard"),

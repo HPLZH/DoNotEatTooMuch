@@ -6,4 +6,5 @@ return {
     hard2 = require("difficulties.hard2"),
     hard3 = require("difficulties.hard3"),
     hard4 = require("difficulties.hard4"),
+    user = require("difficulties.user"),
 }
