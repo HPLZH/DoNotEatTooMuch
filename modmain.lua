@@ -1,10 +1,13 @@
 local require = GLOBAL.require
-GLOBAL.TUNING.DO_NOT_EAT_TOO_MUCH = require("mod_config")
+local CONFIG = require("mod_config")
+local difficulty = GetModConfigData("difficulty")
+local language = GetModConfigData("language")
+GLOBAL.TUNING.DO_NOT_EAT_TOO_MUCH = CONFIG(difficulty)
 
 require("mod_tuning_override")
 
 local LoadStrings = require("strings.strings")
-LoadStrings("cn")
+LoadStrings(language)
 
 AddComponentPostInit("hunger", require("modifiers.components.hunger"))
 AddComponentPostInit("sanity", require("modifiers.components.sanity"))
