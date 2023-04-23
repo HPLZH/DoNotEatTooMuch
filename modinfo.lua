@@ -37,3 +37,36 @@ client_only_mod = false
 all_clients_require_mod = true -- false also ok
 
 forumthread = ""
+
+local function OptionInfo(description, data, hover)
+    return { description = description, data = data, hover = hover }
+end
+
+local function Option(name, label, hover, options, default)
+    return {
+        name = name,
+        label = label,
+        hover = hover,
+        options = options,
+        default = default,
+    }
+end
+
+local difficulties = {
+    OptionInfo("简单", "easy", "Easy"),
+    OptionInfo("普通", "normal", "默认难度\nNormal (Default)"),
+    OptionInfo("困难", "hard", "Hard"),
+    OptionInfo("困难+", "hard1", "Hard+"),
+    OptionInfo("困难++", "hard2", "Hard++"),
+    OptionInfo("疯狂", "hard3", "Crazy"),
+    OptionInfo("死亡", "hard4", "Deadly"),
+}
+
+local languages = {
+    OptionInfo("简体中文", "cn")
+}
+
+configuration_options = {
+    Option("difficulty", "难度", "Difficulty", difficulties, "normal"),
+    Option("language", "语言", "Language", languages, "cn")
+}
