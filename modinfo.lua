@@ -67,7 +67,8 @@ local difficulties = {
 }
 
 local languages = {
-    OptionInfo("简体中文", "cn")
+    OptionInfo("? ? ?", "chars", "无语言"),
+    OptionInfo("简体中文", "cn"),
 }
 
 configuration_options = {
