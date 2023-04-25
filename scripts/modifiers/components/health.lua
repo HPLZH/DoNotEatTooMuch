@@ -64,7 +64,13 @@ local function onHungerChanged(inst, data)
 end
 
 local function onDeath(inst, data)
+    inst.components.health:overflow_stop()
     inst:RemoveTag("MOD_DO_NOT_EAT_TOO_MUCH_DANGER")
+    if inst.components.hunger then
+        if inst.components.hunger:GetPercent() > 1 then
+            inst.components.hunger:SetPercent(1)
+        end
+    end
 end
 
 local function add_overflow_damage(self)
@@ -79,11 +85,10 @@ local function add_overflow_damage(self)
     end
     self.overflow_start = startDamage
     self.overflow_stop = stopDamage
-    self.overflow_hungerChanged = onHungerChanged
     self.overflow_damage = DoDamage
-    self.overflow_death = onDeath
-    self.inst:ListenForEvent("hungerdelta", self.overflow_hungerChanged, self.inst)
-    self.inst:ListenForEvent("death", self.overflow_death, self.inst)
+    
+    self.inst:ListenForEvent("hungerdelta", onHungerChanged, self.inst)
+    self.inst:ListenForEvent("death", onDeath, self.inst)
 end
 
 return add_overflow_damage
