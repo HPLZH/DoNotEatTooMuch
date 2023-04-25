@@ -63,6 +63,10 @@ local function onHungerChanged(inst, data)
     end
 end
 
+local function onDeath(inst, data)
+    inst:RemoveTag("MOD_DO_NOT_EAT_TOO_MUCH_DANGER")
+end
+
 local function add_overflow_damage(self)
     self.overflow = {}
     self.overflow.damage = 0
@@ -77,7 +81,9 @@ local function add_overflow_damage(self)
     self.overflow_stop = stopDamage
     self.overflow_hungerChanged = onHungerChanged
     self.overflow_damage = DoDamage
+    self.overflow_death = onDeath
     self.inst:ListenForEvent("hungerdelta", self.overflow_hungerChanged, self.inst)
+    self.inst:ListenForEvent("death", self.overflow_death, self.inst)
 end
 
 return add_overflow_damage
