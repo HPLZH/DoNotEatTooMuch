@@ -86,7 +86,7 @@ local function override_DoDec(self, dt, ignore_damage)
                 end
                 if self.inst.components.health.overflow.sum * math.random() > CONFIG.HEALTH_DROP_POINT - CONFIG.HEALTH_RANDOM_DROP_POINT then
                     self.inst.components.health.overflow.sum = 0
-                    self.inst.components.health:DoDelta(-self.inst.components.health.overflow.damage * 10, false, "food")
+                    self.inst.components.health:DoDelta(-self.inst.components.health.overflow.damage * CONFIG.HEALTH_FREQ, false, "food")
                     self.inst.components.health.overflow.hurt_count = self.inst.components.health.overflow.hurt_count + 1
                     if self.inst.components.health.overflow.hurt_count > CONFIG.HEALTH_HURT_COUNT then
                         self.inst:AddTag("MOD_DO_NOT_EAT_TOO_MUCH_DANGER")
