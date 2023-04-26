@@ -10,7 +10,7 @@ local function startDamage(self)
     if self.overflow.task ~= nil then
         self.overflow.task:Cancel()
     end
-    self.overflow.task = self.inst:DoPeriodicTask(self.overflow.period, function() self:overflow_damage() end)
+    self.overflow.task = self.inst:DoPeriodicTask(1 / CONFIG.HEALTH_FREQ, function() self:overflow_damage() end)
 end
 
 local function stopDamage(self)
@@ -22,7 +22,7 @@ end
 
 local function onHungerChanged(inst, data)
     if data.newpercent > CONFIG.HEALTH_DROP_STOP_POINT then
-        inst.components.health.overflow.damage = (data.newpercent - CONFIG.HEALTH_CURE_POINT) * CONFIG.HEALTH_RATE
+        inst.components.health.overflow.damage = (data.newpercent - CONFIG.HEALTH_CURE_POINT) * CONFIG.HEALTH_RATE / CONFIG.HEALTH_FREQ
     else
         inst.components.health.overflow.damage = 0
     end
@@ -76,7 +76,6 @@ end
 local function add_overflow_damage(self)
     self.overflow = {}
     self.overflow.damage = 0
-    self.overflow.period = 0.1
     self.overflow.sum = 0
     self.overflow.hurt_count = 0
     self.overflow.task = nil
