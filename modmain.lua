@@ -1,4 +1,5 @@
 local require = GLOBAL.require
+GLOBAL.TUNING.DO_NOT_EAT_TOO_MUCH_NAME = modname
 local CONFIG = require("mod_config")
 local difficulty = GetModConfigData("difficulty")
 local language = GetModConfigData("language")
