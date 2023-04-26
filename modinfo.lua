@@ -38,6 +38,11 @@ all_clients_require_mod = true -- false also ok
 
 forumthread = ""
 
+--Force enable English
+--To use other languages, change "EN" to other strings.
+
+--local locale = "EN"
+
 local STRINGS = {
     CN = {
         BASIC = "基本设置",
@@ -84,7 +89,55 @@ local STRINGS = {
             BASIC_MASS = "基础质量",
             SPEED_SANITY_MULTIPLIER_MIN = "最低换算精神值",
         }
-    }
+    },
+
+    EN = {
+        BASIC = "Basic",
+        DIFFICULTY = "Difficulty",
+        DIFFICULTIES = {
+            USER = "Custom",
+            USER_D = "Enable the custom parameters below",
+            EASY = "Easy",
+            NORMAL = "Normal (Default)",
+            HARD = "Hard",
+            HARD1 = "Hard+",
+            HARD2 = "Hard++",
+            HARD3 = "Crazy",
+            HARD4 = "Deadly",
+        },
+        LANGUAGE = "Language",
+        NOLANG = "No language",
+        USER_CONFIG = "Custom Parameters",
+        CONFIG = {
+            SANITY_RATE = "精神值下降速率",
+            SANITY_MOVING_MULTIPLIER = "移动精神速率系数",
+            HEALTH_RATE = "生命值下降速率",
+            HEALTH_FREQ = "生命值下降频率",
+            HEALTH_DROP_POINT = "危险临界点",
+            HEALTH_RANDOM_DROP_POINT = "随机掉血点",
+            HEALTH_DROP_STOP_POINT = "安全临界点",
+            HEALTH_CURE_POINT = "状态恢复点",
+            HEALTH_HURT_COUNT = "随机掉血最大计数",
+            HUNGER_MOVING_MULTIPLIER = "移动食物速率系数",
+            BASIC_MASS = "基础质量",
+            SPEED_SANITY_MULTIPLIER_MIN = "最低换算精神值",
+        },
+        CONFIG_D = {
+            SANITY_RATE = "精神值下降速率",
+            SANITY_MOVING_MULTIPLIER = "移动中精神值下降速率系数",
+            HEALTH_RATE = "生命值下降速率",
+            HEALTH_FREQ = "生命值下降频率",
+            HEALTH_DROP_POINT = "危险临界点",
+            HEALTH_RANDOM_DROP_POINT = "随机掉血点",
+            HEALTH_DROP_STOP_POINT = "安全临界点",
+            HEALTH_CURE_POINT = "状态恢复点",
+            HEALTH_HURT_COUNT = "随机掉血最大计数",
+            HUNGER_MOVING_MULTIPLIER = "移动中食物消耗速率系数",
+            BASIC_MASS = "基础质量",
+            SPEED_SANITY_MULTIPLIER_MIN = "最低换算精神值",
+        }
+    },
+
 }
 
 STRINGS.ZH = STRINGS.CN
