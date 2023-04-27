@@ -4,9 +4,9 @@
 
 ### 单机版/联机版
 
-1. 前往Steam创意工坊页面: 
-  DS : <https://steamcommunity.com/sharedfiles/filedetails/?id=2955693537>
-  DST: <https://steamcommunity.com/sharedfiles/filedetails/?id=2955691787>
+1. 前往Steam创意工坊页面:  
+  DS : <https://steamcommunity.com/sharedfiles/filedetails/?id=2955693537>  
+  DST: <https://steamcommunity.com/sharedfiles/filedetails/?id=2955691787>  
 2. 点击页面上绿色的“订阅”按钮
 3. 等待Steam自动下载这个mod
 
@@ -17,7 +17,7 @@
     ```lua
     ServerModSetup("2955691787")
     ```
-3. 要启用mod，请在存档的`modoverrides.lua`中添加相应的配置信息
+3. 要启用mod，请在存档的`modoverrides.lua`中添加相应的配置信息  
   建议在DST中开一个存档，调好配置，然后把`modoverrides.lua`复制到专用服务器上
 
 ## 下载压缩文件
