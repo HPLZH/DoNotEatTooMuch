@@ -56,7 +56,7 @@ local function override_OnUpdate_DS(self, dt)
     
     此方法是对游戏源代码进行修改而成(DS,RoG,SW,HAM)
     游戏源代码的版权归 Klei Entertainment 所有
-    
+    使用这部分代码需要遵循 Klei Entertainment 的相关要求
     --]]
     local down = (self.owner.components.temperature.IsOverheating ~= nil and self.owner.components.temperature:IsOverheating()) or
         self.owner.components.temperature:IsFreezing() or

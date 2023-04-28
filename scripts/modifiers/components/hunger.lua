@@ -9,7 +9,7 @@ local function override_DoDelta(self, delta, overtime, ignore_invincible)
 
     此方法是对游戏源代码进行整合与修改而成(DS,DST)
     游戏源代码的版权归 Klei Entertainment 所有
-
+    使用这部分代码需要遵循 Klei Entertainment 的相关要求
     --]]
     if (TheSim.GetGameID ~= nil and TheSim:GetGameID() == "DST") then
         if self.redirect ~= nil then
