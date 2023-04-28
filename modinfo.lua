@@ -19,7 +19,7 @@ description = [[
 author = "Li Zihan"
 
 --A version number so you can ask people if they are running an old version of your mod.
-version = "v1.8"
+version = "v1.9"
 
 -- DS
 api_version = 6
