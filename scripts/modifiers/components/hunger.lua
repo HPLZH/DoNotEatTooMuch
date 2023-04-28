@@ -30,11 +30,12 @@ local function override_DoDelta(self, delta, overtime, ignore_invincible)
     end
 
     local old = self.current
-    self.current = self.current + delta
-    if self.current < 0 then
-        self.current = 0
+    local newValue = self.current + delta
+    if newValue < 0 then
+        newValue = 0
     end
-
+    self.current = newValue
+    
     if self.current <= 0 and old > 0 then
         if self.onStarve then
             self.onStarve(self.inst)
