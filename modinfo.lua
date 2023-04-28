@@ -45,6 +45,7 @@ forumthread = ""
 
 local STRINGS = {
     CN = {
+        DEFAULT_LANG = "cn",
         BASIC = "基本设置",
         DIFFICULTY = "难度",
         DIFFICULTIES = {
@@ -287,7 +288,7 @@ if folder_name then
     configuration_options = {
         Header(STR.BASIC),
         Option("difficulty", STR.DIFFICULTY, nil, difficulties, "normal"),
-        Option("language", STR.LANGUAGE, "Language", languages, "cn"),
+        Option("language", STR.LANGUAGE, "Language", languages, STR.DEFAULT_LANG),
         Header(STR.USER_CONFIG),
         Option("SANITY_RATE", STR.CONFIG.SANITY_RATE, STR.CONFIG_D.SANITY_RATE, numbers_0_10, 1),
         Option("SANITY_MOVING_MULTIPLIER", STR.CONFIG.SANITY_MOVING_MULTIPLIER, STR.CONFIG_D.SANITY_MOVING_MULTIPLIER, percents_1_2, 1.2),
@@ -305,7 +306,7 @@ if folder_name then
 else
     configuration_options = {
         Option("difficulty", STR.DIFFICULTY, nil, difficulties, "normal"),
-        Option("language", STR.LANGUAGE, "Language", languages, "cn"),
+        Option("language", STR.LANGUAGE, "Language", languages, STR.DEFAULT_LANG),
         Option("SANITY_RATE", STR.CONFIG.SANITY_RATE, STR.CONFIG_D.SANITY_RATE, numbers_0_10, 1),
         Option("SANITY_MOVING_MULTIPLIER", STR.CONFIG.SANITY_MOVING_MULTIPLIER, STR.CONFIG_D.SANITY_MOVING_MULTIPLIER, percents_1_2, 1.2),
         Option("HEALTH_RATE", STR.CONFIG.HEALTH_RATE, STR.CONFIG_D.HEALTH_RATE, numbers_0_10, 1),
