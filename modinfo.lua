@@ -93,6 +93,7 @@ local STRINGS = {
     },
 
     EN = {
+        DEFAULT_LANG = "chars",
         BASIC = "Basic",
         DIFFICULTY = "Difficulty",
         DIFFICULTIES = {
