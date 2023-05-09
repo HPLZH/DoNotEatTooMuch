@@ -11,7 +11,7 @@ return {
         WOODIE = "speech_woodie",
         WICKERBOTTOM = "speech_wickerbottom",
         WX78 = "speech_wx78",
-        WAXWELL = "speech_generic",
+        WAXWELL = "speech_waxwell",
         WAGSTAFF = "speech_generic",
 
         -- RoG
